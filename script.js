@@ -5,6 +5,10 @@ function setup() {
   canvasEl.height = canvasCtx.height = window.innerHeight;
 }
 
-function draw() {}
+function draw() {
+  canvasCtx.fillStyle = "#03351e";
+  canvasCtx.fillRect(0, 0, window.innerWidth,window.innerHeight );
+}
 
 setup();
+draw();
