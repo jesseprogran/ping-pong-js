@@ -143,7 +143,7 @@ const ball = {
   },
 
   _speedUp: function () {
-    this.speed += 2;
+    this.speed += 3;
   },
 
   _pointUp: function () {
