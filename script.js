@@ -66,7 +66,7 @@ const ball = {
   x:300,
   y:200,
   r:20,
-  speed:7,
+  speed:5,
   _move:  function () {
     this.x += 1 * this.speed;
     this.y += 1 * this.speed;
@@ -98,7 +98,24 @@ function draw() {
 
 }
 
-setup();
-draw();
+window.animateFrame = (function () {
+  return (
+    window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function (callback) {
+      return window.setTimeout(callback, 1000 / 60)
+    }
+  )
+})()
 
-window.setInterval(draw, 1000 / 60);
+function main () {
+  animateFrame(main)
+  draw()
+}
+
+setup()
+main()
+
