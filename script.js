@@ -66,11 +66,17 @@ const ball = {
   x:300,
   y:200,
   r:20,
+  speed:7,
+  _move:  function () {
+    this.x += 1 * this.speed;
+    this.y += 1 * this.speed;
+  },
   draw: function () {
     canvasCtx.fillStyle = "#ffffff"
     canvasCtx.beginPath();
     canvasCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
     canvasCtx.fill();
+    this._move();
   }
 }
 
@@ -94,3 +100,5 @@ function draw() {
 
 setup();
 draw();
+
+window.setInterval(draw, 1000 / 60);
